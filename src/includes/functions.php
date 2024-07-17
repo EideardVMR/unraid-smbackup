@@ -264,7 +264,13 @@ function CopyFile($source, $destination, $progress = true, $delete_source_after_
 
 function scandirRecursive($dir, &$results = array()) {
 
-    $files = scandir($dir);
+    // This if statement added by GraphicHealer will either add $dir as a file directly, or run 'scandir()' depending on the type.
+    if (is_file($dir)) {
+      $files[] = $dir;
+    } else {
+      $files = scandir($dir);
+    }
+
     //Log::LogInfo("scandir Start: " . $dir);
 
     foreach ($files as $value) {
