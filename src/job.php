@@ -48,10 +48,10 @@ if(($argv[1] ?? '') == 'backup') {
                     $backupstate = false;
                 }
                 
-                $backup_compressioninfo['Files'] += $vm->backup_compressioninfo['Files'];
-                $backup_compressioninfo['OriginalSize'] += $vm->backup_compressioninfo['OriginalSize'];
-                $backup_compressioninfo['CompressedSize'] += $vm->backup_compressioninfo['CompressedSize'];
-                $backup_compressioninfo['Time'] += $vm->backup_compressioninfo['Time'];
+                $backup_compressioninfo['Files'] += $container->backup_compressioninfo['Files'];
+                $backup_compressioninfo['OriginalSize'] += $container->backup_compressioninfo['OriginalSize'];
+                $backup_compressioninfo['CompressedSize'] += $container->backup_compressioninfo['CompressedSize'];
+                $backup_compressioninfo['Time'] += $container->backup_compressioninfo['Time'];
 
             }
         }
