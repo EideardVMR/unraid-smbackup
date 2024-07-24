@@ -37,7 +37,7 @@ foreach($vms as $vm) {
     $backups = $vm->getStoredBackups();
     foreach($backups as $key => $backup) {
 
-        $chart_pi_vm[$vm->name] += $backup['Size'];
+        $chart_pi_vm[$vm->name] = ($chart_pi_vm[$vm->name] ?? 0) + $backup['Size'];
 
     }
 }
@@ -49,7 +49,7 @@ foreach($chart_pi_vm as &$pi) {
 foreach($container_list as $container) {
     $backups = $container->getStoredBackups();
     foreach($backups as $backup) {
-        $chart_pi_container[$container->name] += $backup['Size'];
+        $chart_pi_container[$container->name] = ($chart_pi_container[$container->name] ?? 0) + $backup['Size'];;
     }
 }
 
