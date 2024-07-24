@@ -578,8 +578,8 @@ class Container {
                 'File' => $file['full_path'],
                 'InArchive' => $file['r_path'],
                 'Permissions' => substr(sprintf('%o', fileperms($file['full_path'])), -4),
-                'User' => posix_getpwuid(fileowner($file['full_path']))['name'],
-                'Group' => posix_getgrgid(filegroup($file['full_path']))['name']
+                'User' => posix_getpwuid(fileowner($file['full_path']))['name'] ?? null,
+                'Group' => posix_getgrgid(filegroup($file['full_path']))['name'] ?? null
             ];
     
         }
